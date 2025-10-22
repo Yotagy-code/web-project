@@ -131,3 +131,10 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 });
+document.querySelectorAll('.nav-links li a').forEach(link => {
+  link.addEventListener('click', () => {
+    if (navLinks.classList.contains('active')) {
+      navLinks.classList.remove('active');
+    }
+  });
+});
