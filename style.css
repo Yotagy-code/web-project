@@ -340,9 +340,15 @@ form button {
   opacity: 1;
   visibility: visible;
 }
+#hamburgerBtn {
+  display: none;
+}
 
 /* Responsive */
 @media (max-width: 768px) {
+  #hamburgerBtn {
+    display: block; 
+  }
   .nav {
     justify-content: flex-start;
   }
@@ -371,5 +377,6 @@ form button {
    
   }
 }
+
 
 
