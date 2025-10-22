@@ -47,3 +47,87 @@ let unknown;
 
 console.log(typeof age);
 console.log(typeof name);
+
+function showGreeting(message) {
+  const g = document.getElementById('greeting');
+  if (g) {
+    g.textContent = message;
+  }
+}
+
+function askNameAndGreet() {
+  let name = null;
+
+  while (!name) {
+    name = prompt("What is your name?");
+    
+    if (name === null || name.trim() === "") {
+      showGreeting("This is Optional");
+    } else {
+      showGreeting(`Hi, ${name.trim()}!`);
+      break;
+    }
+  }
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+  const greetBtn = document.getElementById('greetBtn');
+  const menuToggle = document.querySelector('.menu-toggle');
+  const navLinks = document.querySelector('.nav-links');
+  const scrollBtn = document.getElementById('scrollBtn');
+  const form = document.getElementById('contact-form');
+
+  // Greeting button
+  if (greetBtn) {
+    greetBtn.addEventListener('click', askNameAndGreet);
+  }
+
+  // Menu toggle
+  if (menuToggle && navLinks) {
+    menuToggle.addEventListener('click', () => {
+      navLinks.classList.toggle('active');
+    });
+  }
+
+  // Smooth anchor scrolling
+  document.querySelectorAll('a[href^="#"]').forEach(link => {
+    link.addEventListener('click', (e) => {
+      const id = link.getAttribute('href');
+      const target = document.querySelector(id);
+      if (!target) return; 
+      e.preventDefault();
+      target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      history.pushState(null, '', id); 
+    });
+  });
+  
+
+  // Scroll-to-top visibility when near bottom
+  window.addEventListener('scroll', () => {
+    const nearBottom = window.innerHeight + window.scrollY >= document.body.offsetHeight - 100;
+    if (scrollBtn) {
+      if (nearBottom) {
+        scrollBtn.classList.add('show');
+      } else {
+        scrollBtn.classList.remove('show');
+      }
+    }
+  });
+
+  // Scroll-to-top click
+  if (scrollBtn) {
+    scrollBtn.addEventListener('click', () => {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  }
+
+  // Contact form
+  if (form) {
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+      const formData = new FormData(form);
+      alert('Thank you! Your message has been submitted.');
+      form.reset();
+    });
+  }
+});
