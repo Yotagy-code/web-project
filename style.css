@@ -387,55 +387,43 @@
     opacity: 1;
     visibility: visible;
   }  
-@media (max-width: 768px) {
-  /* Стили меню */
-  .nav {
-    justify-content: center;
-    position: relative;
+ @media (max-width: 768px) {
+    .menu-toggle {
+      display: block;
+      position: absolute;
+      left: 1rem;
+      top: 50%;
+      transform: translateY(-50%);
+      z-index: 1000;
+      color: #fff;
+      background: none;
+      border: none;
+      font-size: 1.8rem;
+      cursor: pointer;
+    }
+  
+    .nav-links {
+      display: none;
+      flex-direction: column;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      width: 100%;
+      background-color: #1B1B1B;
+      gap: 1rem;
+      padding: 1rem 0;
+      z-index: 900;
+    }
+  
+    .nav-links.active {
+      display: flex;
+    }
+  
+    .nav-links li a {
+      color: #fff;
+      text-decoration: none;
+      font-size: 1.2rem;
+      padding: 0.5rem 1rem;
+      display: block;
+    }
   }
-
-  /* Гамбургер-слева */
-  .menu-toggle {
-    display: block;
-    position: absolute;
-    left: 1rem; /* Выравниваем слева */
-    top: 50%;
-    transform: translateY(-50%);
-    font-size: 1.8rem;
-    background: none;
-    border: none;
-    cursor: pointer;
-    color: #fff;
-    z-index: 100;
-  }
-
-  /* Скрываем навигацию по умолчанию */
-  .nav-links {
-    display: none;
-    flex-direction: column;
-    position: absolute;
-    top: 100%;
-    left: 0;
-    background-color: #1B1B1B;
-    width: 100%;
-    gap: 1rem;
-    padding: 1rem 0;
-    z-index: 99;
-  }
-
-  /* Показываем при активации */
-  .nav-links.active {
-    display: flex;
-  }
-
-  .nav-links li {
-    text-align: center;
-  }
-
-  .nav-links li a {
-    font-size: 1.2rem;
-    padding: 0.5rem 1rem;
-    color: #fff;
-  }
-}
-
