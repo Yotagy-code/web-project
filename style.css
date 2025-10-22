@@ -397,3 +397,110 @@
     opacity: 1;
     visibility: visible;
   }  
+/* --- Адаптивность: планшеты и мобильные --- */
+@media (max-width: 1024px) {
+  .container {
+    padding: 0 2rem;
+  }
+
+  .hero h1 {
+    font-size: 2.5rem;
+  }
+
+  .hero p {
+    font-size: 1.1rem;
+  }
+
+  .profile-photo {
+    width: 250px;
+    height: 250px;
+  }
+}
+
+@media (max-width: 768px) {
+  .nav {
+    padding: 1rem;
+    justify-content: space-between;
+  }
+  .nav-links {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background-color: #1B1B1B;
+    gap: 1rem;
+    padding: 1rem 0;
+  }
+  .nav-links.active {
+    display: flex;
+  }
+  .nav-links li a {
+    font-size: 1.2rem;
+    padding: 0.5rem 1rem;
+  }
+  .menu-toggle {
+    display: block;
+    color: #fff;
+  }
+
+  .intro-wrapper {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 0 2rem;
+  }
+  .hero-content {
+    margin-left: 0;
+    max-width: 100%;
+  }
+  .profile-photo {
+    margin-top: 2rem;
+    width: 180px;
+    height: 180px;
+  }
+
+  section, .section, .section-alt {
+    padding: 4rem 2rem;
+    margin: 2rem 0;
+    min-height: auto;
+  }
+
+  .projects {
+    grid-template-columns: 1fr;
+  }
+
+  .testimonials {
+    grid-template-columns: 1fr;
+  }
+
+  .site-footer {
+    padding: 2rem 1rem;
+    font-size: 0.9rem;
+  }
+
+  #scrollBtn {
+    bottom: 30px;
+    right: 30px;
+    padding: 15px;
+    font-size: 16px;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero h1 {
+    font-size: 2rem;
+  }
+  .hero p {
+    font-size: 1rem;
+  }
+  .btn-primary {
+    padding: 0.6rem 1.5rem;
+    font-size: 0.9rem;
+  }
+  .nav-links li a {
+    font-size: 1rem;
+  }
+}
+
