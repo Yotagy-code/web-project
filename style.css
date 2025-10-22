@@ -294,16 +294,19 @@ form button {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  justify-content: flex-start;
   gap: 2rem;
   width: 100%;
+  flex-wrap: nowrap;
 }
 
+
 .profile-photo {
+  flex-shrink: 0;  
   width: 350px;
   height: 350px;
   border-radius: 50%;
   object-fit: cover;
-  flex-shrink: 0;
 }
 
 /* Footer */
@@ -368,4 +371,5 @@ form button {
    
   }
 }
+
 
