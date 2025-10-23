@@ -86,6 +86,7 @@ body {
 
 /* Buttons */
 .btn-primary {
+  box-shadow: 0 0 15px #62BA1B;
   border: none;
   padding: 0.8rem 2rem;
   font-size: 1rem;
@@ -321,6 +322,7 @@ form button {
 
 /* Scroll button */
 #scrollBtn {
+  box-shadow: 0 0 15px #62BA1B;
   position: fixed;
   bottom: 60px;
   right: 60px;
@@ -378,6 +380,7 @@ form button {
    
   }
 }
+
 
 
 
