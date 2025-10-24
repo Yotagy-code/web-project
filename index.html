@@ -10,10 +10,8 @@
 </head>
 <body>
 
-
   <!-- Navbar -->
   <nav class="nav">
-    <button id="hamburgerBtn" class="menu-toggle">☰</button>
     <ul class="nav-links">
       <li><a href="#home">Home</a></li>
       <li><a href="#case-studies">Case Studies</a></li>
@@ -23,48 +21,48 @@
     </ul>
 
     <div class="social-icons">
-        <a href="https://github.com/Yotagy-code" target="_blank" aria-label="GitHub"><i class="fab fa-github"></i></a>
-        <a href="https://t.me/Yotagy" target="_blank" aria-label="Telegram"><i class="fab fa-telegram"></i></a>
-        <a href="https://instagram.com/yotagy_" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
-      </div>
+      <a href="https://github.com/Yotagy-code" target="_blank" aria-label="GitHub"><i class="fab fa-github"></i></a>
+      <a href="https://t.me/Yotagy" target="_blank" aria-label="Telegram"><i class="fab fa-telegram"></i></a>
+      <a href="https://instagram.com/yotagy_" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+    </div>
+
+    <button id="themeToggle" class="theme-toggle" aria-label="Toggle theme">🌙</button>
+
+    <button id="hamburgerBtn" class="menu-toggle">☰</button>
   </nav>
 
   <!-- Hero Section -->
   <section id="home" class="hero">
     <div class="container">
       <div class="intro-wrapper">
-        
-        <!-- Text -->
         <div class="hero-content">
-          <h1><span class="accent">Zhanbolot</span></h1>
+          <h1><span class="accent">Hi, I'm Zhanbolot</span></h1>
+          <h2 class="typing-text">I'm a <span id="typed-text"></span><span class="cursor">|</span></h2>
           <p>
             Intro text: Lorem ipsum dolor sit amet, consectetur
              adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
           </p>
-          <a href="#get-in-touch" class="btn-primary">Let’s get started ></a>
+          <a href="#get-in-touch" class="btn-primary">Let's get started ></a>
         </div>
-  
-        <!-- Image -->
         <img src="images/9d0a4e1e-69ed-4e01-9679-6d9f079e53f4.png" alt="Profile photo" class="profile-photo" />
       </div>
     </div>
   </section>
-  
 
   <!-- Case Studies Section -->
-  <section id="case-studies" class="section">
+  <section id="case-studies" class="section scroll-reveal">
     <div class="container">
       <h2>Case Studies</h2>
       <div class="projects">
-        <div class="project-card">
+        <div class="project-card scroll-reveal">
           <h3>Project One</h3>
           <p>Brief description of this amazing project.</p>
         </div>
-        <div class="project-card">
+        <div class="project-card scroll-reveal">
           <h3>Project Two</h3>
           <p>Brief description of this amazing project.</p>
         </div>
-        <div class="project-card">
+        <div class="project-card scroll-reveal">
           <h3>Project Three</h3>
           <p>Brief description of this amazing project.</p>
         </div>
@@ -73,41 +71,33 @@
   </section>
 
   <!-- Testimonials Section -->
-  <section id="testimonials" class="section">
+  <section id="testimonials" class="section scroll-reveal">
     <h2>Testimonials</h2>
     <p class="testimonials-desc">
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-      </p>
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+    </p>
     <div class="testimonials">
-      <blockquote>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+      <blockquote class="scroll-reveal">
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
         <footer>Client Name</footer>
       </blockquote>
-      <blockquote>
-        <p>Consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </p>
-        <footer>Client Name</footer>
-      </blockquote>
-      <blockquote>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </p>
-        <footer>Client Name</footer>
-      </blockquote>
-      <blockquote>
-        <p>Consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </p>
+      <blockquote class="scroll-reveal">
+        <p>Consectetur adipiscing elit, sed do eiusmod tempor incididunt.</p>
         <footer>Client Name</footer>
       </blockquote>
     </div>
   </section>
 
   <!-- Recent Work Section -->
-  <section id="recent-work" class="section">
+  <section id="recent-work" class="section scroll-reveal">
     <div class="container">
       <h2>Recent Work</h2>
       <div class="projects">
-        <div class="project-card">
+        <div class="project-card scroll-reveal">
           <h3>Recent Project One</h3>
           <p>Details about recent project.</p>
         </div>
-        <div class="project-card">
+        <div class="project-card scroll-reveal">
           <h3>Recent Project Two</h3>
           <p>Details about recent project.</p>
         </div>
@@ -128,7 +118,6 @@
     </div>
   </section>
 
-  <script src="script.js"></script>
   <footer class="site-footer">
     <p>Made with ❤️</p>
     <p>&copy; 2025 MyCompany. All rights reserved.</p>
@@ -136,11 +125,7 @@
 
   <button id="scrollBtn" title="Scroll to top">⬆</button>
 
-  
-  
+  <script src="script.js"></script>
 </body>
 </html>
-
-
-
 
