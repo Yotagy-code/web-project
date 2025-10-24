@@ -22,13 +22,13 @@ body {
 
 /* Navbar */
 .nav {
-  position: fixed;     
-  top: 0;             
+  position: fixed;
+  top: 0;
   left: 0;
-  width: 100%;         
+  width: 100%;
   background-color: #1B1B1B;
   box-shadow: 0 2px 6px rgba(0,0,0,0.05);
-  z-index: 1000;       
+  z-index: 1000;
   padding: 1rem 2rem;
   display: flex;
   align-items: center;
@@ -76,7 +76,7 @@ body {
 }
 
 .hero .accent {
-  color: #fff ;
+  color: #fff;
 }
 
 .hero p {
@@ -104,7 +104,7 @@ section#testimonials .btn-primary,
 section#get-in-touch .btn-primary {
   background-color: #62BA1B;
   color: #fff;
-  border-radius: 4px; /* прямоугольная с небольшим скруглением */
+  border-radius: 4px;
 }
 
 section#home .btn-primary:hover,
@@ -227,7 +227,7 @@ section, .section, .section-alt {
   line-height: 1.5;
 }
 
-/* Общие стили для blockquote (не #testimonials) */
+/* General blockquote styles */
 blockquote {
   background-color: white;
   padding: 1.5rem;
@@ -295,16 +295,14 @@ form button {
 .intro-wrapper {
   display: flex;
   align-items: center;
-  justify-content: space-between;
   justify-content: flex-start;
   gap: 2rem;
   width: 100%;
   flex-wrap: nowrap;
 }
 
-
 .profile-photo {
-  flex-shrink: 0;  
+  flex-shrink: 0;
   width: 350px;
   height: 350px;
   border-radius: 50%;
@@ -344,18 +342,53 @@ form button {
   visibility: visible;
 }
 
+.menu-toggle,
 #hamburgerBtn {
   display: none;
 }
 
+/* ========================================
+   RESPONSIVE STYLES - MOBILE ADAPTIVE
+   ======================================== */
 
-/* Responsive */
-@media (max-width: 768px) {
-  #hamburgerBtn {
-    display: block; 
+/* Tablet: 768px - 1024px */
+@media (max-width: 1024px) {
+  .container {
+    padding: 0 2rem;
   }
+
+  section, .section, .section-alt {
+    padding: 4rem 2rem;
+  }
+
+  .hero h1 {
+    font-size: 2.5rem;
+  }
+
+  .profile-photo {
+    width: 280px;
+    height: 280px;
+  }
+}
+
+/* Mobile: Up to 768px */
+@media (max-width: 768px) {
+  /* Hamburger menu */
+  .menu-toggle,
+  #hamburgerBtn {
+    display: block;
+    background: none;
+    border: none;
+    color: #fff;
+    font-size: 1.8rem;
+    cursor: pointer;
+    padding: 0.5rem;
+    z-index: 1001;
+  }
+
   .nav {
-    justify-content: flex-start;
+    justify-content: space-between;
+    padding: 1rem 1.5rem;
   }
 
   .nav-links {
@@ -366,9 +399,9 @@ form button {
     left: 0;
     background-color: #1B1B1B;
     width: 100%;
-    gap: 1rem;
-    padding: 1rem 0;
-    box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+    gap: 0;
+    padding: 0;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
     z-index: 900;
   }
 
@@ -376,15 +409,158 @@ form button {
     display: flex;
   }
 
+  .nav-links li {
+    border-bottom: 1px solid #333;
+  }
+
+  .nav-links li:last-child {
+    border-bottom: none;
+  }
+
   .nav-links li a {
     color: #fff;
-    text-decoration: none;
-   
+    display: block;
+    padding: 1rem 1.5rem;
+  }
+
+  /* Social icons in mobile */
+  .social-icons {
+    margin-left: 0;
+    gap: 1.5rem;
+  }
+
+  /* Container and sections */
+  .container {
+    padding: 0 1.5rem;
+  }
+
+  section, .section, .section-alt {
+    padding: 3rem 1.5rem;
+    margin: 2rem 0;
+    min-height: auto;
+  }
+
+  /* Hero section */
+  .hero {
+    padding: 0 1.5rem;
+    min-height: auto;
+    padding-top: 80px;
+  }
+
+  .intro-wrapper {
+    flex-direction: column;
+    text-align: center;
+    gap: 2rem;
+  }
+
+  .hero-content {
+    margin-left: 0;
+    text-align: center;
+  }
+
+  .hero h1 {
+    font-size: 2rem;
+  }
+
+  .hero p {
+    font-size: 1rem;
+  }
+
+  .profile-photo {
+    width: 200px;
+    height: 200px;
+    order: -1;
+  }
+
+  /* Projects grid */
+  .projects {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  /* Testimonials */
+  .testimonials {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .testimonials-desc {
+    font-size: 1rem;
+    padding: 0 1rem;
+  }
+
+  /* Buttons */
+  .btn-primary {
+    padding: 0.7rem 1.5rem;
+    font-size: 0.95rem;
+    width: 100%;
+    text-align: center;
+  }
+
+  /* Form */
+  form {
+    width: 100%;
+    padding: 0 1rem;
+  }
+
+  form button {
+    width: 100%;
+  }
+
+  /* Scroll button */
+  #scrollBtn {
+    bottom: 20px;
+    right: 20px;
+    padding: 15px;
+    font-size: 16px;
+  }
+
+  /* Footer */
+  .site-footer {
+    padding: 1.5rem 1rem;
+    font-size: 0.85rem;
   }
 }
 
+/* Small mobile: Up to 480px */
+@media (max-width: 480px) {
+  .hero h1 {
+    font-size: 1.75rem;
+  }
 
+  .hero p {
+    font-size: 0.95rem;
+  }
 
+  .profile-photo {
+    width: 180px;
+    height: 180px;
+  }
 
+  section, .section, .section-alt {
+    padding: 2rem 1rem;
+  }
+
+  .project-card,
+  #testimonials blockquote {
+    padding: 1.5rem;
+  }
+
+  .btn-primary {
+    padding: 0.6rem 1.2rem;
+    font-size: 0.9rem;
+  }
+
+  #scrollBtn {
+    bottom: 15px;
+    right: 15px;
+    padding: 12px;
+    font-size: 14px;
+  }
+
+  .social-icons a {
+    font-size: 1.3rem;
+  }
+}
 
 
