@@ -11,6 +11,7 @@ body {
   color: #2E2E2E;
   line-height: 1.6;
   scroll-behavior: smooth;
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 /* Container */
@@ -33,6 +34,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
+  transition: background-color 0.3s ease;
 }
 
 .nav-links {
@@ -73,6 +75,13 @@ body {
 .hero h1 {
   font-size: 3rem;
   margin-bottom: 1rem;
+}
+
+.hero h2.typing-text {
+  font-size: 2rem;
+  margin-bottom: 1.5rem;
+  color: #9C9C9C;
+  font-weight: 400;
 }
 
 .hero .accent {
@@ -129,6 +138,7 @@ section, .section, .section-alt {
   padding: 6rem 4rem;
   margin: 4rem 0;
   min-height: 600px;
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 /* Section headers */
@@ -177,7 +187,7 @@ section, .section, .section-alt {
   border-radius: 12px;
   padding: 2rem;
   box-shadow: 0 8px 20px rgb(0 0 0 / 0.08);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
 }
 
 .project-card:hover {
@@ -307,6 +317,7 @@ form button {
   height: 350px;
   border-radius: 50%;
   object-fit: cover;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
 }
 
 /* Footer */
@@ -316,6 +327,7 @@ form button {
   background-color: #1B1B1B;
   color: #9C9C9C;
   font-size: 0.95rem;
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 /* Scroll button */
@@ -347,11 +359,108 @@ form button {
   display: none;
 }
 
-/* ========================================
-   RESPONSIVE STYLES - MOBILE ADAPTIVE
-   ======================================== */
+/* Theme toggle button */
+.theme-toggle {
+  background: none;
+  border: none;
+  color: #fff;
+  font-size: 1.5rem;
+  cursor: pointer;
+  margin-left: 1rem;
+  transition: transform 0.3s ease;
+  padding: 0.5rem;
+}
 
-/* Tablet: 768px - 1024px */
+.theme-toggle:hover {
+  transform: rotate(20deg);
+}
+
+/* Light theme */
+body.light-theme {
+  background-color: #fff;
+  color: #111;
+}
+
+body.light-theme .nav {
+  background-color: #f0f0f0;
+}
+
+body.light-theme .nav-links li a {
+  color: #333;
+}
+
+body.light-theme .nav-links li a:hover {
+  color: #62BA1B;
+}
+
+body.light-theme .theme-toggle {
+  color: #333;
+}
+
+body.light-theme .social-icons a {
+  color: #666;
+}
+
+body.light-theme .social-icons a:hover {
+  color: #62BA1B;
+}
+
+body.light-theme #home {
+  background-color: #f8f9fa;
+  color: #111;
+}
+
+body.light-theme #home .accent {
+  color: #62BA1B;
+}
+
+body.light-theme #case-studies {
+  background-color: #ffffff;
+}
+
+body.light-theme #testimonials {
+  background-color: #f8f9fa;
+  color: #111;
+}
+
+body.light-theme #testimonials blockquote {
+  background-color: #fff;
+  color: #555;
+  border: 1px solid #ddd;
+}
+
+body.light-theme #testimonials blockquote footer {
+  color: #62BA1B;
+}
+
+body.light-theme #testimonials .testimonials-desc {
+  color: #555;
+}
+
+body.light-theme #recent-work {
+  background-color: #ffffff;
+}
+
+body.light-theme #get-in-touch {
+  background-color: #f8f9fa;
+  color: #111;
+}
+
+body.light-theme .project-card {
+  background-color: #fafafa;
+  color: #222;
+  border: 1px solid #e5e5e5;
+}
+
+body.light-theme .project-card h3 {
+  color: #111;
+}
+
+body.light-theme .site-footer {
+  background-color: #f0f0f0;
+  color: #444;
+}
+
 @media (max-width: 1024px) {
   .container {
     padding: 0 2rem;
@@ -371,9 +480,7 @@ form button {
   }
 }
 
-/* Mobile: Up to 768px */
 @media (max-width: 768px) {
-  /* Hamburger menu */
   .menu-toggle,
   #hamburgerBtn {
     display: block;
@@ -384,6 +491,11 @@ form button {
     cursor: pointer;
     padding: 0.5rem;
     z-index: 1001;
+  }
+
+  body.light-theme .menu-toggle,
+  body.light-theme #hamburgerBtn {
+    color: #333;
   }
 
   .nav {
@@ -405,12 +517,20 @@ form button {
     z-index: 900;
   }
 
+  body.light-theme .nav-links {
+    background-color: #f0f0f0;
+  }
+
   .nav-links.active {
     display: flex;
   }
 
   .nav-links li {
     border-bottom: 1px solid #333;
+  }
+
+  body.light-theme .nav-links li {
+    border-bottom: 1px solid #ddd;
   }
 
   .nav-links li:last-child {
@@ -423,13 +543,15 @@ form button {
     padding: 1rem 1.5rem;
   }
 
-  /* Social icons in mobile */
+  body.light-theme .nav-links li a {
+    color: #333;
+  }
+
   .social-icons {
     margin-left: 0;
     gap: 1.5rem;
   }
 
-  /* Container and sections */
   .container {
     padding: 0 1.5rem;
   }
@@ -440,7 +562,6 @@ form button {
     min-height: auto;
   }
 
-  /* Hero section */
   .hero {
     padding: 0 1.5rem;
     min-height: auto;
@@ -472,13 +593,11 @@ form button {
     order: -1;
   }
 
-  /* Projects grid */
   .projects {
     grid-template-columns: 1fr;
     gap: 1.5rem;
   }
 
-  /* Testimonials */
   .testimonials {
     grid-template-columns: 1fr;
     gap: 1.5rem;
@@ -489,7 +608,6 @@ form button {
     padding: 0 1rem;
   }
 
-  /* Buttons */
   .btn-primary {
     padding: 0.7rem 1.5rem;
     font-size: 0.95rem;
@@ -497,7 +615,6 @@ form button {
     text-align: center;
   }
 
-  /* Form */
   form {
     width: 100%;
     padding: 0 1rem;
@@ -507,7 +624,6 @@ form button {
     width: 100%;
   }
 
-  /* Scroll button */
   #scrollBtn {
     bottom: 20px;
     right: 20px;
@@ -515,14 +631,12 @@ form button {
     font-size: 16px;
   }
 
-  /* Footer */
   .site-footer {
     padding: 1.5rem 1rem;
     font-size: 0.85rem;
   }
 }
 
-/* Small mobile: Up to 480px */
 @media (max-width: 480px) {
   .hero h1 {
     font-size: 1.75rem;
@@ -561,6 +675,45 @@ form button {
   .social-icons a {
     font-size: 1.3rem;
   }
+}
+
+/* Typing Animation */
+#typed-text {
+  color: #62BA1B;
+}
+
+.cursor {
+  color: #62BA1B;
+  animation: blink 0.7s infinite;
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+/* Scroll Reveal Animation */
+.scroll-reveal {
+  opacity: 0;
+  transform: translateY(50px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.scroll-reveal.revealed {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+body.light-theme .hero h2.typing-text {
+  color: #555;
+}
+
+body.light-theme #typed-text {
+  color: #62BA1B;
+}
+
+body.light-theme .cursor {
+  color: #62BA1B;
 }
 
 
