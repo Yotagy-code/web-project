@@ -343,9 +343,11 @@ form button {
   opacity: 1;
   visibility: visible;
 }
+
 #hamburgerBtn {
   display: none;
 }
+
 
 /* Responsive */
 @media (max-width: 768px) {
@@ -380,6 +382,7 @@ form button {
    
   }
 }
+
 
 
 
