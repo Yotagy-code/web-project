@@ -1,139 +1,123 @@
-const score = 75;
-if (score >= 90) {
-  console.log('Отлично');
-} else if (score >= 60) {
-  console.log('Хорошо');
-} else {
-  console.log('Нужно подтянуть');
-}
+// ======================
+// Typing Animation
+// ======================
+const texts = ['Developer', 'Designer', 'Freelancer', 'Creator'];
+let textIndex = 0;
+let charIndex = 0;
+let isDeleting = false;
+let typingSpeed = 150;
 
-const result = score >= 60 ? 'зачёт' : 'незачёт';
-console.log(result);
+function typeText() {
+  const typedTextElement = document.getElementById('typed-text');
+  if (!typedTextElement) return;
 
-const user = 'Olia';
-const points = 42;
-const msg = `Привет, ${user}! У тебя ${points} очков.`;
-console.log(msg);
+  const currentText = texts[textIndex];
 
-let a = 10;
-let b = 3;
-console.log(a + b);
-console.log(a - b);
-console.log(a * b);
-console.log(a / b);
-console.log(a % b);
-console.log(10 % 3);
-console.log(8 % 2);
-console.log(7 / 2);
-console.log(5 * 3);
-console.log('6' * '7');
-console.log(10 - 4);
-console.log(2 + 3);
-console.log('Привет, ' + 'мир!');
-
-console.log("error");
-console.warn("error");
-console.error("error");
-console.table("error");
-
-let age = 20;
-const pi = 3.14;
-var legacy = 'old';
-
-let name = 'Olia';
-let isAdmin = false;
-let nothing = null;
-let unknown;
-
-console.log(typeof age);
-console.log(typeof name);
-
-function showGreeting(message) {
-  const g = document.getElementById('greeting');
-  if (g) {
-    g.textContent = message;
+  if (isDeleting) {
+    typedTextElement.textContent = currentText.substring(0, charIndex - 1);
+    charIndex--;
+    typingSpeed = 50;
+  } else {
+    typedTextElement.textContent = currentText.substring(0, charIndex + 1);
+    charIndex++;
+    typingSpeed = 150;
   }
+
+  if (!isDeleting && charIndex === currentText.length) {
+    isDeleting = true;
+    typingSpeed = 2000; // Пауза перед удалением
+  } else if (isDeleting && charIndex === 0) {
+    isDeleting = false;
+    textIndex = (textIndex + 1) % texts.length;
+    typingSpeed = 500; // Пауза перед новым словом
+  }
+
+  setTimeout(typeText, typingSpeed);
 }
 
-function askNameAndGreet() {
-  let name = null;
+// ======================
+// Scroll Reveal Animation
+// ======================
+function revealOnScroll() {
+  const reveals = document.querySelectorAll('.scroll-reveal');
+  
+  reveals.forEach(element => {
+    const windowHeight = window.innerHeight;
+    const elementTop = element.getBoundingClientRect().top;
+    const revealPoint = 150;
 
-  while (!name) {
-    name = prompt("What is your name?");
-    
-    if (name === null || name.trim() === "") {
-      showGreeting("This is Optional");
-    } else {
-      showGreeting(`Hi, ${name.trim()}!`);
-      break;
+    if (elementTop < windowHeight - revealPoint) {
+      element.classList.add('revealed');
     }
-  }
+  });
 }
 
+// ======================
+// Основная логика после загрузки страницы
+// ======================
 document.addEventListener('DOMContentLoaded', () => {
-  const greetBtn = document.getElementById('greetBtn');
   const menuToggle = document.querySelector('.menu-toggle');
   const navLinks = document.querySelector('.nav-links');
   const scrollBtn = document.getElementById('scrollBtn');
   const form = document.getElementById('contact-form');
+  const themeToggle = document.getElementById('themeToggle');
 
-  // Greeting button
-  if (greetBtn) {
-    greetBtn.addEventListener('click', askNameAndGreet);
-  }
-
-  // Menu toggle
+  // Меню-бургер
   if (menuToggle && navLinks) {
-    menuToggle.addEventListener('click', () => {
-      navLinks.classList.toggle('active');
-    });
+    menuToggle.addEventListener('click', () => navLinks.classList.toggle('active'));
   }
 
-  // Smooth anchor scrolling
+  // Плавная прокрутка по якорным ссылкам
   document.querySelectorAll('a[href^="#"]').forEach(link => {
     link.addEventListener('click', (e) => {
-      const id = link.getAttribute('href');
-      const target = document.querySelector(id);
-      if (!target) return; 
+      const target = document.querySelector(link.getAttribute('href'));
+      if (!target) return;
       e.preventDefault();
       target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-      history.pushState(null, '', id); 
+      history.pushState(null, '', link.getAttribute('href'));
+      
+      // Закрываем мобильное меню после клика
+      if (navLinks) navLinks.classList.remove('active');
     });
   });
-  
 
-  // Scroll-to-top visibility when near bottom
+  // Появление кнопки "вверх" при прокрутке вниз
   window.addEventListener('scroll', () => {
     const nearBottom = window.innerHeight + window.scrollY >= document.body.offsetHeight - 100;
-    if (scrollBtn) {
-      if (nearBottom) {
-        scrollBtn.classList.add('show');
-      } else {
-        scrollBtn.classList.remove('show');
-      }
-    }
+    if (scrollBtn) scrollBtn.classList.toggle('show', nearBottom);
+    
+    // Вызываем scroll reveal
+    revealOnScroll();
   });
 
-  // Scroll-to-top click
+  // Инициализация scroll reveal при загрузке
+  revealOnScroll();
+
+  // Запуск typing animation
+  setTimeout(typeText, 1000);
+
+  // Клик по кнопке "вверх"
   if (scrollBtn) {
-    scrollBtn.addEventListener('click', () => {
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-    });
+    scrollBtn.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
   }
 
-  // Contact form
+  // Отправка контактной формы
   if (form) {
-    form.addEventListener('submit', function (e) {
+    form.addEventListener('submit', (e) => {
       e.preventDefault();
-      const formData = new FormData(form);
       alert('Thank you! Your message has been submitted.');
       form.reset();
     });
   }
+
+  // --- Смена темы ---
+  if (themeToggle) {
+    themeToggle.addEventListener('click', () => {
+      document.body.classList.toggle('light-theme');
+      const isLight = document.body.classList.contains('light-theme');
+
+      // Меняем иконку
+      themeToggle.textContent = isLight ? '☀️' : '🌙';
+    });
+  }
 });
-
-
-
-
-
-
